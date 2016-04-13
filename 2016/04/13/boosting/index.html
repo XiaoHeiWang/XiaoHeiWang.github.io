@@ -3,23 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>目标分割、识别、检测、跟踪的一些区别 | WangXiaoHei&#39;s Site</title>
+    <title>WangXiaoHei&#39;s Site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="目标分割，识别，检测，跟踪
-目标分割，应该是Target Segmentation，应该是data/image segmentation的一种。这里假定数据是图像，就如楼上说的，任务是把目标对应的部分分割出来。对于一般的光学图像而言，分割像素是一个比较常见的目标，就是要提取哪一些像素是用于表述已知目标的。这种Segmentation可以是一个分类（classificatio）问题，就是把每一个p">
+    <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="目标分割、识别、检测、跟踪的一些区别">
-<meta property="og:url" content="http://yoursite.com/2016/04/12/second/index.html">
+<meta property="og:title" content="WangXiaoHei's Site">
+<meta property="og:url" content="http://yoursite.com/2016/04/13/boosting/index.html">
 <meta property="og:site_name" content="WangXiaoHei's Site">
-<meta property="og:description" content="目标分割，识别，检测，跟踪
-目标分割，应该是Target Segmentation，应该是data/image segmentation的一种。这里假定数据是图像，就如楼上说的，任务是把目标对应的部分分割出来。对于一般的光学图像而言，分割像素是一个比较常见的目标，就是要提取哪一些像素是用于表述已知目标的。这种Segmentation可以是一个分类（classificatio）问题，就是把每一个p">
-<meta property="og:image" content="http://7xsw9o.com1.z0.glb.clouddn.com/b29f5e2435a3a7346bd3d2e7a0d242d4.jpg">
-<meta property="og:updated_time" content="2016-04-12T08:34:57.773Z">
+<meta property="og:description">
+<meta property="og:updated_time" content="2016-04-13T02:24:49.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="目标分割、识别、检测、跟踪的一些区别">
-<meta name="twitter:description" content="目标分割，识别，检测，跟踪
-目标分割，应该是Target Segmentation，应该是data/image segmentation的一种。这里假定数据是图像，就如楼上说的，任务是把目标对应的部分分割出来。对于一般的光学图像而言，分割像素是一个比较常见的目标，就是要提取哪一些像素是用于表述已知目标的。这种Segmentation可以是一个分类（classificatio）问题，就是把每一个p">
-<meta name="twitter:image" content="http://7xsw9o.com1.z0.glb.clouddn.com/b29f5e2435a3a7346bd3d2e7a0d242d4.jpg">
+<meta name="twitter:title" content="WangXiaoHei's Site">
+<meta name="twitter:description">
     
 
     
@@ -186,45 +181,15 @@
 </aside>
 
             
-            <section id="main"><article id="post-second" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-boosting" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
         
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-            目标分割、识别、检测、跟踪的一些区别
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/04/12/second/">
-            <time datetime="2016-04-12T08:22:53.112Z" itemprop="datePublished">2016-04-12</time>
-        </a>
-    </div>
-
-
-                    
-                    
-                </div>
-            </header>
-        
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><img src="http://7xsw9o.com1.z0.glb.clouddn.com/b29f5e2435a3a7346bd3d2e7a0d242d4.jpg" alt="grey"></p>
-<h3 id="目标分割，识别，检测，跟踪"><a href="#目标分割，识别，检测，跟踪" class="headerlink" title="目标分割，识别，检测，跟踪"></a>目标分割，识别，检测，跟踪</h3><ol>
-<li>目标分割，应该是Target Segmentation，应该是data/image segmentation的一种。这里假定数据是图像，就如楼上说的，任务是把目标对应的部分分割出来。对于一般的光学图像而言，分割像素是一个比较常见的目标，就是要提取哪一些像素是用于表述已知目标的。这种Segmentation可以是一个分类（classificatio）问题，就是把每一个pixel做labeling，提出感兴趣的那一类label的像素。也可以是clustering的问题，即是不知道label，但需要满足一些optimality，比如要cluster之间的correlation最小之类的。当然，答主也见过一些针对其他数据的目标分割，比如hyperspectral data，也需要分割哪些频率或者通道对应的是目标。比如视频流，那段时间对应是目标。<br><img src="http://7xsw9o.com1.z0.glb.clouddn.com/283e32b9-3313-4461-ab6b-d431b2e498b3.png" alt="segmentation"></li>
-<li>目标识别，应该是Target Recognition。这是一个基于分类（Classification）的识别（Recognition）问题，即是在所有的给定数据中，分类出哪一些sample是目标，哪一些不是。还是拿图片作为数据举例，这个分类的层面往往不是pixel，给定的一些segment，或者定义的对象（Object），或者图片本身。<br><img src="http://7xsw9o.com1.z0.glb.clouddn.com/03bbfb72-0c78-42c0-9af6-ecd9e2290b5d.png" alt="recognition"></li>
-<li>目标检测，应该是Target Detection。<br>最早的detection system应该是搞雷达的人首先提出并且heavily study的，最简单的任务就是从看似随机（random）又充满干扰（interference）和噪音（noise）的信号中，抓取到有信息的特征（information-bearing pattern）。最简单的一个栗子，就是当你拿到一段随机的雷达回波，可以设置一个threshold，当高于这个threshold，就认为是探测到了高速大面积飞行器之类的高回波的目标。当然，这里面的threshold该怎么设计，涉及到False Alarm和Miss Detection之间的平衡。人们往往需要寻找最佳的transform或者domain去对信号进行分析<br><img src="http://7xsw9o.com1.z0.glb.clouddn.com/d15539f8-8539-4c41-8cd9-108d23d6adf4.jpg" alt="detection"></li>
-<li>目标追踪，应该是Target Tracking。这个任务很重要的第一点是目标定位（Target Locating），而且这个任务设计到的数据一般具有时间序列（Temporal Data）。常见的情况是首先Target被Identify以后，算法或者系统需要在接下来时序的数据中，快速并高效地对给定目标进行再定位。任务需要区别类似目标，需要避免不要的重复计算，充分利用好时序相关性（Temporal Correlation），并且需要对一些简单的变化Robust，必须旋转，遮盖，缩小放大，Motion Blur之类的线性或者非线性变化<br><img src="http://7xsw9o.com1.z0.glb.clouddn.com/c777a567-72a9-4c08-a864-8cf35f44633c.jpg" alt="track"></li>
-</ol>
-
+            
         
         </div>
         <footer class="article-footer">
@@ -234,7 +199,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/04/12/second/" data-id="cimy9kuzd0003p0p31kwpkmdj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/04/13/boosting/" data-id="cimy9kux70000p0p3gadlpvzu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -302,7 +267,7 @@
 
             
     
-        <a href="/2016/04/12/second/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/2016/04/12/second/">Comments</a>
+        <a href="/2016/04/13/boosting/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/2016/04/13/boosting/">Comments</a>
     
 
         </footer>
@@ -311,19 +276,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/04/13/boosting/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    (no title)
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/04/12/first/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/04/12/second/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">跟踪资料汇总</div>
+            <div class="article-nav-title">目标分割、识别、检测、跟踪的一些区别</div>
         </a>
     
 </nav>
@@ -484,7 +440,7 @@
     var disqus_shortname = 'hexo-theme-icarus';
     
     
-    var disqus_url = 'http://yoursite.com/2016/04/12/second/';
+    var disqus_url = 'http://yoursite.com/2016/04/13/boosting/';
     
     (function() {
     var dsq = document.createElement('script');
