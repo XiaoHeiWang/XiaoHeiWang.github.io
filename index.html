@@ -149,7 +149,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                4
+                5
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -181,6 +181,131 @@
 
             
             <section id="main">
+    <article id="post-high-speed-tracker" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/04/14/high-speed-tracker/">快速跟踪器</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/14/high-speed-tracker/">
+            <time datetime="2016-04-14T08:29:00.551Z" itemprop="datePublished">2016-04-14</time>
+        </a>
+    </div>
+
+
+                    
+                    
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><img src="http://7xsw9o.com1.z0.glb.clouddn.com/9b229b5de7ebba9adfd04fe16e9b2f1d.jpg" alt="love"></p>
+<h2 id="各种快速跟踪器的比较"><a href="#各种快速跟踪器的比较" class="headerlink" title="各种快速跟踪器的比较"></a>各种快速跟踪器的比较</h2><p>各算法的主要思想：</p>
+<p>CN跟踪器：是CSK[5]跟踪器的改进算法。它联合颜色特征（ColorName）和灰度特征来描述目标，在文献[1]作者通过大量的实验证明了Color Name在视觉跟踪中的卓越性能，并且对Color Name进行了PCA降维，去除了Color Name中的冗余信息，使得对目标的外观描述更加精确和鲁棒。在分类器的训练中，在CSK算法的代价函数的基础上引入一个固定的权值贝塔，使得分类器的训练和更新更加准确和鲁棒。CN跟踪器对很多复杂的视频序列都有很好的跟踪结果，比如：光照变化，遮挡，非刚性形变，运动模糊，平面内旋转，出平面旋转和背景杂乱。CN跟踪器也有不足的地方，比如：尺度变化，快速运动，出视角和低分辨率，等视频的跟踪效果不佳。</p>
+<p>KCF跟踪器 ：是原CSK跟踪器的作者对CSK跟踪器的完善，这里简单介绍一下CSK跟踪器的主要思想。CSK跟踪器最大亮点就是提出了利用循环移位的方法进行稠密采样并结合FFT快速的进行分类器的训练。稠密采样的采样方式能提取目标的所有信息，这对目标的跟踪至关重要。虽然CSK的速度很快，但是CSK只是简单的使用了灰度特征，对目标的外观描述能力显然不足。对此作者改进了CSK提出了KCF，从原来的单通道灰度特征换成了多通道Hog特征。KCF算法通过核函数对多通道的Hog特征进行了融合，使得训练所得的分类器对待检测目标的解释力更强。KCF跟踪器对光照变化，遮挡，非刚性形变，运动模糊，背景杂乱和旋转等视频均能跟踪良好，但对尺度变化，快速运动，刚性形变等视频跟踪效果不佳。</p>
+<p>STC跟踪器：是一个简单快速而且鲁棒的算法，它利用稠密的空时场景模型来进行跟踪。在贝叶斯框架下，它利用目标和目标局部的稠密信息的空时关系来建模。置信图在被计算时考虑了上一帧目标的位置的先验信息，这有效的减轻了目标位置的模糊。STC跟踪器使用了最简单的灰度特征，但是灰度并不能很好对外观进行描述。这里可以改进为其他比较好的特征（Color name或者Hog），但是就会遇到多通道特征融合的问题。一般的Tracking-by-Detection跟踪算法基本都不能实现尺度的变化，而STC跟踪器就提出了一种有效的尺度变化方案，也是文章[3]中最大的亮点。这里简单介绍一下，通过连续两帧的目标最佳位置处的置信值的比值来计算当前帧中目标的估计尺度，为了不引入噪声和避免过度敏感的自适应引入连续n帧的平均估计尺度最后通过滤波获得最终的目标估计尺度STC跟踪器对光照变化，尺度变化，姿势变化，遮挡，旋转，背景杂乱和突然运动的视频都有较好的跟踪，但对刚性形变，出视角和低分辨率的视频效果不佳。</p>
+<p>ODFS跟踪器： 是一种简单而有效的在线判别特征选择的算法。通过沿着正样本的最陡上升梯度和负样本的最陡下降梯度来迭代优化目标函数，使得弱分类器的输出最大化。通过这种方式来达到选择更加鲁棒的特征的目的，并指出MIL[6]通过Bag likelihood的代价函数来选择特征不必要性。它整合目标的先验信息到半监督学习算法中有效的抑制了目标的漂移。ODFS跟踪器对光照变化，遮挡，姿态变化，陡然运动，旋转，运动模糊，背景模糊和摄像机抖动的视频都有较好的跟踪结果，但对尺度变化，出视角，低分辨率和刚性形变等视频效果不佳。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2016/04/14/high-speed-tracker/" data-id="cin01d2u40001nop3y2nqft91" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="/2016/04/14/high-speed-tracker/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="/2016/04/14/high-speed-tracker/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-boosting" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -226,7 +351,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/04/13/boosting/" data-id="cimyatkvu000010p3a3jmj13n" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/04/13/boosting/" data-id="cin01d2u40000nop3v115zgaa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -352,7 +477,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/04/12/second/" data-id="cimyatkw9000510p3edxeamrp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/04/12/second/" data-id="cin01d2vu0004nop35sreap35" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -476,7 +601,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/04/12/first/" data-id="cimyatkw9000210p3658x8tot" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/04/12/first/" data-id="cin01d2vf0002nop3h1nq8srd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -609,7 +734,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2016/04/07/hello-world/" data-id="cimyatkw9000410p334ue12hf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2016/04/07/hello-world/" data-id="cin01d2wq0006nop3zidvve14" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -699,6 +824,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/04/14/high-speed-tracker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xsw9o.com1.z0.glb.clouddn.com/9b229b5de7ebba9adfd04fe16e9b2f1d.jpg)" alt="快速跟踪器" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/04/14/high-speed-tracker/" class="title">快速跟踪器</a></p>
+                            <p class="item-date"><time datetime="2016-04-14T08:29:00.551Z" itemprop="datePublished">2016-04-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/04/13/boosting/" class="thumbnail">
     
     
@@ -783,7 +927,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">4</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">5</span></li></ul>
         </div>
     </div>
 
